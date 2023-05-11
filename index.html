@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Using for loops</title>
+</head>
+<body>
+  <script>
+    // Define an array of objects to store student names and scores
+    const students = [
+      { name: "Wang", score: 80 },
+      { name: "Chen", score: 75 },
+      { name: "Zhao", score: 92 },
+      { name: "Liu", score: 60 },
+      { name: "Yamamoto", score: 91 },
+      { name: "Tanaka", score: 82 },
+    ];
+    
+    // Initialize a variable to store the sum of scores
+    var sum = 0;
+
+    // Display the names and scores of all students
+    document.write("<b>There are " + students.length + " students. Their scores are as follows:</b><br/>");
+    for (var i = 0; i < students.length; i++) {
+      document.write(students[i].name + "   " + students[i].score + "<br/>");
+      sum += students[i].score;
+    }
+
+    // Display the names and scores of all students who scored 90 or higher
+    document.write("<br/><b>The following are the students who can get an A:</b><br/>");
+    for (var i = 0; i < students.length; i++) {
+      if (students[i].score >= 90) {
+        document.write(students[i].name + "   " + students[i].score + "<br/>");
+      }
+    }
+
+    // Display the total score and average score of all students
+    var average = sum / students.length;
+    document.write("<br/>Total score is " + sum);
+    document.write("<br/>The average score is " + average);
+
+    // Sort the students array in descending order by score
+    for (var i = 0; i < students.length; i++) {
+      for (var j = i + 1; j < students.length; j++) {
+        if (students[i].score < students[j].score) {
+          var temp = students[i];
+          students[i] = students[j];
+          students[j] = temp;
+        }
+      }
+    }
+
+    // Display the names and scores of all students in descending order by score
+    document.write("<br/><br/><b>Sort scores in descending order:</b><br/>");
+    for (var i = 0; i < students.length; i++) {
+      document.write(students[i].name + "   " + students[i].score + "<br/>");
+    }
+  </script>
+</body>
+</html>
